@@ -1323,7 +1323,7 @@ void cpuinfo_arm_decode_cache(
 			 * https://developer.arm.com/documentation/101427/0102/?lang=en
 			 *  - Neoverse V2:
 			 * https://developer.arm.com/documentation/102375/0002/?lang=en
-			 *  - Neoverse V3:
+			 *  - Neoverse V3/V3AE:
 			 * https://support.arm.com/documentation/107734/0002/?lang=en
 			 *
 			 * All five Arm architectures have L1 memory system with
@@ -1340,7 +1340,7 @@ void cpuinfo_arm_decode_cache(
 			 * configurable size of 256KB, 512KB, or 1024KB
 			 *  - Arm Neoverse V2 has a L2 cache of configurable
 			 * size of 1MB or 2MB
-			 *  - Arm Neoverse V3 has a L2 cache of configurable
+			 *  - Arm Neoverse V3/V3AE has a L2 cache of configurable
 			 * size of 2MB or 3MB
 			 * For all other
 			 * information, please refer to the technical manuals
