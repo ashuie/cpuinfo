@@ -1341,17 +1341,17 @@ void cpuinfo_arm_decode_cache(
 			 *  - Arm Neoverse V2 has a L2 cache of configurable
 			 * size of 1MB or 2MB
 			 *  - Arm Neoverse V3/V3AE has a L2 cache of configurable
-			 * size of 2MB or 3MB
+			 * size of 1MB, 2MB, or 3MB
 			 * For all other
 			 * information, please refer to the technical manuals
 			 * linked above
 			 */
-			uint32_t min_l2_size_KB = 256;
-			if (uarch == cpuinfo_uarch_neoverse_v3) {
-				min_l2_size_KB = 2048;
-			} else if (uarch == cpuinfo_uarch_neoverse_v2 || midr_is_ampere_altra(midr)) {
-				min_l2_size_KB = 1024;
-			}
+			const uint32_t min_l2_size_KB =
+				(uarch == cpuinfo_uarch_neoverse_v2 ||
+				 uarch == cpuinfo_uarch_neoverse_v3 ||
+				 midr_is_ampere_altra(midr))
+				? 1024
+				: 256;
 			const uint32_t min_l3_size_KB = 0;
 
 			*l1i = (struct cpuinfo_cache){
